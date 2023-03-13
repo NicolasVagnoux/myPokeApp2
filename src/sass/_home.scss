@@ -1,0 +1,41 @@
+.home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    &__filters {
+        &__genPagination {
+            &__button {
+                width: 60px;
+                &--selected {
+                    background-color: cyan;
+                }
+            }
+        }
+    }
+    &__pokedexList {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 90%;
+        height: 95vh;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            display: none;
+          }
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: auto;
+        .topRef {
+            width: 0;
+            height: 0;
+            margin-right: -20px;
+            align-self: flex-start;
+            margin-top: -10px;
+        }
+    }
+}

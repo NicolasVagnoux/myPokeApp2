@@ -1,0 +1,30 @@
+.statChart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+    width: 100%;
+    &__bar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        p {
+            font-size: 1rem;
+            width: 140px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        & > div {
+            height: 15px;
+            border-radius: 4px;
+        }
+        h6 {
+            width: 20px;
+            margin-left: -25px;
+            color: white;
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,151 @@
+.pokeModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 80vh;
+        width: 50%;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0px 0px 30px black;
+        overflow: hidden;
+        &__1st {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            &__close {
+                align-self: flex-start;
+                width: 40px;
+                height: 40px;
+                border: none;
+                background-color: transparent;
+                padding-top: 15px;
+                padding-left: 5%;
+                margin-bottom: 30px;
+                cursor: pointer;
+                img {
+                    width: 30px;
+                    height: 40px; 
+                }
+            }
+            &__title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                color: white;
+                h2 {
+                    padding-left: 5%;
+                    font-size: 2.2rem;
+                }
+                h3 {
+                    padding-right: 5%;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                }
+            }
+            &__types {
+                align-self: flex-start;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 5%;
+                gap: 10px;
+                margin-top: 20px;
+                h3 {
+                    width: 120px;
+                    text-align: center;
+                    color: white;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    border-radius: 15px;
+                    background-color: rgba(255,255,255,0.25);
+                }
+            }
+            &__image {
+                height: 100%;
+                margin-top: -16%;
+                margin-right: -25%;
+                z-index: 3;
+            }
+        }
+        &__2nd {
+            z-index: 2;
+            width: 100%;
+            height: 60%;
+            background-color: white;
+            border-radius: 20px;
+            margin-top: -5%;
+            &__arrows {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                button {
+                    width: 30px;
+                    height: 30px;
+                    background-color: transparent;
+                    border: none;
+                    margin-top: 10px;
+                    cursor: pointer;
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+                button:nth-child(1) {
+                    margin-left: 2%;
+                }
+                button:nth-child(2) {
+                    margin-right: 2%;
+                    transform: rotate(180deg);
+                }
+            }
+            &__strat {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+                height: calc(97% - 30px);
+                &__stats {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 20px;
+                    padding-left: 10px;
+                    & > p {
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        padding-left: 8%;
+                    }
+                }
+                &__resistances {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 20px;
+                    // padding-right: 10px;
+                    & > p {
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        padding-left: 5%;
+                    }
+                }
+            }
+        }
+    }
+}

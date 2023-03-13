@@ -1,0 +1,54 @@
+.pokeListItem {
+    width: 180px;
+    height: 140px;
+    box-shadow: 0px 0px 10px rgb(80, 80, 80);
+    border-radius: 15px;
+    list-style: none;
+    margin: auto;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    & > p {
+        height: 20%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.4rem;
+        padding-left: 15px;
+        padding-top: 10px;
+    }
+    &__content {
+        height: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        &__types {
+            p {
+                width: 75px;
+                text-align: center;
+                color: white;
+                font-size: 1rem;
+                font-weight: 500;
+                margin-bottom: 5px;
+                margin-left: 10px;
+                border-radius: 15px;
+                background-color: rgba(255,255,255,0.25);
+            }
+        }
+        img {
+            width: 80px;
+            padding-right: 10px;
+            margin-bottom: 10px;
+            z-index: 1;
+        }
+    }
+    .ball {
+        position: relative;
+        overflow: hidden;
+        width: 80px;
+        transform: translate(110px, -80px) rotate(10deg);
+        opacity: 0.3;
+    }
+}

@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Acier",
+        "color": "#60a3b9"
+    },
+    {
+        "name": "Combat",
+        "color": "#ff8100"
+    },
+    {
+        "name": "Dragon",
+        "color": "#4e5fe1"
+    },
+    {
+        "name": "Eau",
+        "color": "#2481ef"
+    },
+    {
+        "name": "Électrik",
+        "color": "#f9c000"
+    },
+    {
+        "name": "Fée",
+        "color": "#ef71ef"
+    },
+    {
+        "name": "Feu",
+        "color": "#e72324"
+    },
+    {
+        "name": "Glace",
+        "color": "#3dd9ff"
+    },
+    {
+        "name": "Insecte",
+        "color": "#92a312"
+    },
+    {
+        "name": "Normal",
+        "color": "#9fa29f"
+    },
+    {
+        "name": "Plante",
+        "color": "#3da324"
+    },
+    {
+        "name": "Poison",
+        "color": "#923fcc"
+    },
+    {
+        "name": "Psy",
+        "color": "#ef3f7a"
+    },
+    {
+        "name": "Roche",
+        "color": "#b1ab82"
+    },
+    {
+        "name": "Sol",
+        "color": "#92501b"
+    },
+    {
+        "name": "Spectre",
+        "color": "#713f71"
+    },
+    {
+        "name": "Ténèbres",
+        "color": "#4e3e3c"
+    },
+    {
+        "name": "Vol",
+        "color": "#82baef"
+    }
+]
