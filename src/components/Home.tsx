@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import IPokedexItem from '../interfaces/IPokedexItem';
 import PokeListItem from './PokeListItem';
-
+import types from '../data/types.json';
 
 const Home = () => {
 
@@ -10,14 +10,21 @@ const Home = () => {
     const [pokedexList, setPokedexList] = useState<IPokedexItem[]>();
 
     // Pagination (by Generation)
-    const [generation, setGeneration] = useState(1);
+    const [generation, setGeneration] = useState(0);
     const allGens = [1,2,3,4,5,6,7,8];
+
+    // Search
+    const [search, setSearch] = useState<string>('');
+
+    // Type filters
+    const [typeFilters, setTypeFilters] = useState<string[]>([]);
+    console.log(typeFilters);
 
     //Scroll to top when changing filter
     const topRef = useRef<null | HTMLDivElement>(null);
     useEffect(() => {
       topRef.current?.scrollIntoView();
-    }, [generation]);
+    }, [generation, typeFilters]);
 
     // API call for pokedex list
     useEffect(() => {
@@ -28,17 +35,57 @@ const Home = () => {
         getPokedexList();
     }, []);
 
+    // Function for type filters
+    const handleTypeFilters = (type: string) => {
+        if (!typeFilters.includes(type)) {
+            if (typeFilters.length < 2) {
+                setTypeFilters([...typeFilters, type]);
+            }
+        } else {
+            setTypeFilters(typeFilters.filter(x => x !== type));
+        }
+    };
+
     return (
         <div className='home'>
-            <div className='homme_filters'>
+
+            <div className='home__filters'>
+                <h1>My PokéApp</h1>
                 <div className='home__filters__genPagination'>
-                    {allGens.map(gen => <button className={`home__filters__genPagination__button ${gen === generation && 'home__filters__genPagination__button--selected'}`} type='button' onClick={() => setGeneration(gen)}>{gen}G</button>)}
+                    <p>Filtrer par génération :</p>
+                    <div className='home__filters__genPagination__buttons'>
+                        {allGens.map(gen => <button className={`home__filters__genPagination__buttons__button ${gen === generation && 'home__filters__genPagination__buttons__button--selected'}`} type='button' onClick={() => setGeneration(gen)}>{gen}G</button>)}
+                        <button className='home__filters__genPagination__buttons__button' type='button' onClick={() => setGeneration(0)}>Toutes</button>
+                    </div>
+                </div>
+                <div className='home__filters__search'>
+                    <p>Rechercher :</p>
+                    <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} />
+                    {search && <img src='./assets/cross_b.svg' alt='reset' onClick={() => setSearch('')} />}
+                </div>
+                <div className='home__filters__type'>
+                    <p>Filtrer par type :<img src='./assets/cross_b.svg' alt='reset' onClick={() => setTypeFilters([])} style={{display: typeFilters.length ? 'initial' : 'none'}}/></p>
+                    <div className='home__filters__type__buttons'>
+                        {types && types.map(type => 
+                            <button className={`home__filters__type__buttons__button ${typeFilters.includes(type.name) && 'home__filters__type__buttons__button--selected'}`} type='button' onClick={() => handleTypeFilters(type.name)}>
+                                {type.name}
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
+
             <ul className='home__pokedexList'>
                 <div className='topRef' ref={topRef}></div>
-                {pokedexList && pokedexList.filter(pokemon => pokemon.apiGeneration === generation).map(pokemon => (<PokeListItem {...pokemon} />))}
+                {pokedexList && pokedexList
+                    .filter(pokemon => pokemon.name.toLowerCase().startsWith(search.toLowerCase()) || !search)
+                    .filter(pokemon => pokemon.apiGeneration === generation || !generation)
+                    .filter(pokemon => typeFilters.includes(pokemon.apiTypes[0].name) || typeFilters.includes(pokemon.apiTypes[1]?.name) || typeFilters.length === 0 || typeFilters.length === 2)
+                    .filter(pokemon => typeFilters.includes(pokemon.apiTypes[0].name) && typeFilters.includes(pokemon.apiTypes[1]?.name) || typeFilters.length < 2)
+                    .map(pokemon => (<PokeListItem {...pokemon} />))
+                }
             </ul>
+            
         </div>
     );
 };
