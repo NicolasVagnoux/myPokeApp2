@@ -3,6 +3,7 @@ import axios from 'axios';
 import IPokedexItem from '../interfaces/IPokedexItem';
 import PokeListItem from './PokeListItem';
 import types from '../data/types.json';
+import MobileFilters from './MobileFilters';
 
 const Home = () => {
 
@@ -18,7 +19,12 @@ const Home = () => {
 
     // Type filters
     const [typeFilters, setTypeFilters] = useState<string[]>([]);
-    console.log(typeFilters);
+
+    // API Loading handling
+    const [isApiLoading, setIsApiLoading] = useState<boolean>(false);
+    useEffect(() => {
+        console.log('API Loading : ' + isApiLoading);
+    }, [isApiLoading]);
 
     //Scroll to top when changing filter
     const topRef = useRef<null | HTMLDivElement>(null);
@@ -29,13 +35,15 @@ const Home = () => {
     // API call for pokedex list
     useEffect(() => {
         const getPokedexList = async () => {
+            setIsApiLoading(true);
             const { data } = await axios.get('https://pokebuildapi.fr/api/v1/pokemon');
             setPokedexList(data);
+            setIsApiLoading(false);
         };
         getPokedexList();
     }, []);
 
-    // Function for type filters
+    // Function to add type filters
     const handleTypeFilters = (type: string) => {
         if (!typeFilters.includes(type)) {
             if (typeFilters.length < 2) {
@@ -51,17 +59,17 @@ const Home = () => {
 
             <div className='home__filters'>
                 <h1>My PokéApp</h1>
+                <div className='home__filters__search'>
+                    <p>Rechercher :</p>
+                    <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} />
+                    {search && <img src='./assets/cross_b.svg' alt='reset' onClick={() => setSearch('')} />}
+                </div>
                 <div className='home__filters__genPagination'>
                     <p>Filtrer par génération :</p>
                     <div className='home__filters__genPagination__buttons'>
                         {allGens.map(gen => <button className={`home__filters__genPagination__buttons__button ${gen === generation && 'home__filters__genPagination__buttons__button--selected'}`} type='button' onClick={() => setGeneration(gen)}>{gen}G</button>)}
                         <button className='home__filters__genPagination__buttons__button' type='button' onClick={() => setGeneration(0)}>Toutes</button>
                     </div>
-                </div>
-                <div className='home__filters__search'>
-                    <p>Rechercher :</p>
-                    <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} />
-                    {search && <img src='./assets/cross_b.svg' alt='reset' onClick={() => setSearch('')} />}
                 </div>
                 <div className='home__filters__type'>
                     <p>Filtrer par type :<img src='./assets/cross_b.svg' alt='reset' onClick={() => setTypeFilters([])} style={{display: typeFilters.length ? 'initial' : 'none'}}/></p>
@@ -73,6 +81,7 @@ const Home = () => {
                         )}
                     </div>
                 </div>
+                <MobileFilters search={search} setSearch={setSearch} generation={generation} setGeneration={setGeneration} typeFilters={typeFilters} setTypeFilters={setTypeFilters} />
             </div>
 
             <ul className='home__pokedexList'>
@@ -84,6 +93,7 @@ const Home = () => {
                     .filter(pokemon => typeFilters.includes(pokemon.apiTypes[0].name) && typeFilters.includes(pokemon.apiTypes[1]?.name) || typeFilters.length < 2)
                     .map(pokemon => (<PokeListItem {...pokemon} />))
                 }
+                {isApiLoading && <img className='loading' src='./assets/loading-ball.png' alt='loading' />}
             </ul>
             
         </div>

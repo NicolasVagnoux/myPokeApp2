@@ -5,10 +5,10 @@
 
 body {
     font-family: 'Satoshi';
-    background-color: #247fef20;
-    // background-image: url('../assets/white-ball.png');
+    background-color: #bdd6ec;
+    // background: linear-gradient(135deg, rgba(126,182,223,1) 0%, rgba(132,144,203,1) 67%);     // background-size: 33vw;
+    background-image: linear-gradient(135deg, rgba(218, 170, 170, 0.95) 0%, rgba(218, 170, 170, 0.95) 67%), url('../assets/bg-ball.png');
+    // background-image: linear-gradient(135deg, rgba(158, 167, 211, 0.92) 0%, rgba(158, 167, 211, 0.92) 67%), url('../assets/bg-ball.png');
+    background-size: 110px 110px;
     // background-repeat: no-repeat;
-    // background-size: 33vw;
-    // background-position: -16vw 66vh;
-    
 }

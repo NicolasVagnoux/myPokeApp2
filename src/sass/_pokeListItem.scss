@@ -1,13 +1,16 @@
 .pokeListItem {
     width: 180px;
     height: 140px;
-    box-shadow: 0px 0px 10px rgb(80, 80, 80);
+    box-shadow: 0px 4px 12px rgb(100, 100, 100);
     border-radius: 15px;
     list-style: none;
     margin: auto;
     align-items: center;
     cursor: pointer;
     overflow: hidden;
+    @media (max-width: 421px) {
+        width: 75%;
+    }
     & > p {
         height: 20%;
         display: flex;
@@ -42,6 +45,10 @@
             padding-right: 10px;
             margin-bottom: 10px;
             z-index: 1;
+            @media (max-width: 421px) {
+                width: 100px;
+                transform: translateY(-15px);
+            }
         }
     }
     .ball {
@@ -50,5 +57,8 @@
         width: 80px;
         transform: translate(110px, -80px) rotate(10deg);
         opacity: 0.3;
+        @media (max-width: 421px) {
+            transform: translate(200px, -80px) rotate(10deg);
+        }
     }
 }
