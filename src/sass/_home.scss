@@ -8,6 +8,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        
     }
     &__filters {
         display: flex;
@@ -20,13 +21,17 @@
         @media (max-width: 768px) {
             height: auto;
             margin-top: 50px;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
         h1 {
             width: 80%;
             font-size: 3.8rem;
             font-family: 'Pally';
             margin-bottom: 20px;
+            @media (max-width: 768px) {
+                margin-bottom: -10px;
+                margin-top: -20px;
+            }
             @media (max-width: 421px) {
                 width: 100vw;
                 text-align: center;

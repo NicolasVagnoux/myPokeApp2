@@ -38,18 +38,22 @@ const MobileFilters = ({ search, setSearch, generation, setGeneration, typeFilte
             {showFilters && <div className='mobileFilters__genPagination'>
                 <p>Filtrer par génération :</p>
                 <div className='mobileFilters__genPagination__buttons'>
-                    {allGens.map(gen => <button className={`mobileFilters__genPagination__buttons__button ${gen === generation && 'mobileFilters__genPagination__buttons__button--selected'}`} type='button' onClick={() => setGeneration(gen)}>{gen}G</button>)}
-                    <button className='mobileFilters__genPagination__buttons__button' type='button' onClick={() => setGeneration(0)}>Toutes</button>
+                    <div className='mobileFilters__genPagination__buttons__container'>
+                        {allGens.map(gen => <button className={`mobileFilters__genPagination__buttons__container__button ${gen === generation && 'mobileFilters__genPagination__buttons__container__button--selected'}`} type='button' onClick={() => setGeneration(gen)}>{gen}G</button>)}
+                        <button className='mobileFilters__genPagination__buttons__container__button' type='button' onClick={() => setGeneration(0)}>Toutes</button>
+                    </div>
                 </div>
             </div>}
             {showFilters && <div className='mobileFilters__type'>
                 <p>Filtrer par type :<img src='./assets/cross_b.svg' alt='reset' onClick={() => setTypeFilters([])} style={{display: typeFilters.length ? 'initial' : 'none'}}/></p>
                 <div className='mobileFilters__type__buttons'>
-                    {types && types.map(type => 
-                        <button className={`mobileFilters__type__buttons__button ${typeFilters.includes(type.name) && 'mobileFilters__type__buttons__button--selected'}`} type='button' onClick={() => handleTypeFilters(type.name)}>
-                            {type.name}
-                        </button>
-                    )}
+                    <div className='mobileFilters__type__buttons__container'>
+                        {types && types.map(type => 
+                            <button className={`mobileFilters__type__buttons__container__button ${typeFilters.includes(type.name) && 'mobileFilters__type__buttons__container__button--selected'}`} type='button' onClick={() => handleTypeFilters(type.name)}>
+                                {type.name}
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>}
         </div>
