@@ -159,6 +159,9 @@
         padding-top: 10px;
         padding-bottom: 10px;
         margin: auto;
+        @media (max-width: 768px) {
+            height: 65vh;
+        }
         .topRef {
             width: 0;
             height: 0;
