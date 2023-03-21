@@ -27,6 +27,7 @@
             width: 80%;
             font-size: 3.8rem;
             font-family: 'Pally';
+            text-shadow: 0px 6px 8px rgb(120, 120, 120);
             margin-bottom: 20px;
             @media (max-width: 768px) {
                 margin-bottom: -10px;
@@ -35,6 +36,44 @@
             @media (max-width: 421px) {
                 width: 100vw;
                 text-align: center;
+            }
+        }
+        &__links {
+            width: 80%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            margin-top: -40px;
+            margin-bottom: 20px;
+            @media (max-width: 768px) {
+                margin-top: -20px;
+            }
+            @media (max-width: 421px) {
+                width: 80vw;
+                margin: auto;
+                justify-content: center;
+            }
+            button {
+                width: 110px;
+                height: 30px;
+                border: none;
+                border-radius: 6px;
+                box-shadow: 0px 4px 10px rgb(120, 120, 120);
+                font-family: 'Satoshi';
+                font-size: 1rem;
+                background-color: #ffffff40;
+                cursor: pointer;
+                @media (max-width: 421px) {
+                    width: 90px;
+                    font-size: 0.9rem;
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
+            }
+            a:nth-child(1) button {
+                background-color: #e7232490;
+                color: white;
             }
         }
         &__genPagination {
@@ -160,7 +199,7 @@
         padding-bottom: 10px;
         margin: auto;
         @media (max-width: 768px) {
-            height: 65vh;
+            height: 60vh;
         }
         .topRef {
             width: 0;
