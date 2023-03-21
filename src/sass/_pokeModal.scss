@@ -188,7 +188,7 @@
                     align-items: flex-start;
                     gap: 20px;
                     @media (max-width: 650px) {
-                        margin-bottom: 150px;
+                        padding-bottom: 150px;
                     }
                     & > p {
                         font-size: 1.4rem;
