@@ -1,0 +1,15 @@
+.typePage {
+    // min-height: 100vh;
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 94%;
+        gap: 20px;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}

@@ -46,7 +46,7 @@ const PokeModal = ({ id, setIsModalOpened }: Props) => {
         <div className='pokeModal'>
             <div className='pokeModal__content'>
                 <div className='pokeModal__content__1st' style={{backgroundColor: `${selectedType.color}90`}}>
-                    <button className='pokeModal__content__1st__close' type='button' onClick={() => setIsModalOpened(false)}><img src="./assets/cross.svg" alt="left-arrow" /></button>
+                    <button className='pokeModal__content__1st__close' type='button' onClick={() => setIsModalOpened(false)}><img src="./assets/cross.svg" alt="close" /></button>
                     <div className='pokeModal__content__1st__title'>
                         <h2>{info.name}</h2>
                         <h3>#{info.id < 10 ? '00'+info.id : info.id < 100 ? '0'+info.id : info.id}</h3>

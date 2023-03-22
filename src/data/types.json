@@ -1,74 +1,110 @@
 [
     {
         "name": "Acier",
-        "color": "#60a3b9"
+        "color": "#60a3b9",
+        "strenghts": ["Fée", "Glace", "Roche"],
+        "weaknesses": ["Combat", "Feu", "Sol"]
     },
     {
         "name": "Combat",
-        "color": "#ff8100"
+        "color": "#ff8100",
+        "strenghts": ["Acier", "Glace", "Normal", "Roche", "Ténèbres"],
+        "weaknesses": ["Fée", "Psy", "Vol"]
     },
     {
         "name": "Dragon",
-        "color": "#4e5fe1"
+        "color": "#4e5fe1",
+        "strenghts": ["Dragon"],
+        "weaknesses": ["Dragon", "Fée", "Glace"]
     },
     {
         "name": "Eau",
-        "color": "#2481ef"
+        "color": "#2481ef",
+        "strenghts": ["Feu", "Roche", "Sol"],
+        "weaknesses": ["Électrik", "Plante"]
     },
     {
         "name": "Électrik",
-        "color": "#f9c000"
+        "color": "#f9c000",
+        "strenghts": ["Eau", "Vol"],
+        "weaknesses": ["Sol"]
     },
     {
         "name": "Fée",
-        "color": "#ef71ef"
+        "color": "#ef71ef",
+        "strenghts": ["Combat", "Dragon", "Ténèbres"],
+        "weaknesses": ["Acier", "Poison"]
     },
     {
         "name": "Feu",
-        "color": "#e72324"
+        "color": "#e72324",
+        "strenghts": ["Acier", "Glace", "Insecte", "Plante"],
+        "weaknesses": ["Eau", "Roche", "Sol"]
     },
     {
         "name": "Glace",
-        "color": "#3dd9ff"
+        "color": "#3dd9ff",
+        "strenghts": ["Dragon", "Plante", "Sol", "Vol"],
+        "weaknesses": ["Acier", "Combat", "Feu", "Roche"]
     },
     {
         "name": "Insecte",
-        "color": "#92a312"
+        "color": "#92a312",
+        "strenghts": ["Plante", "Psy", "Ténèbres"],
+        "weaknesses": ["Feu", "Roche", "Vol"]
     },
     {
         "name": "Normal",
-        "color": "#9fa29f"
+        "color": "#9fa29f",
+        "strenghts": [],
+        "weaknesses": ["Combat"]
     },
     {
         "name": "Plante",
-        "color": "#3da324"
+        "color": "#3da324",
+        "strenghts": ["Eau", "Roche", "Sol"],
+        "weaknesses": ["Feu", "Glace", "Insecte", "Poison", "Vol"]
     },
     {
         "name": "Poison",
-        "color": "#923fcc"
+        "color": "#923fcc",
+        "strenghts": ["Fée", "Plante"],
+        "weaknesses": ["Psy", "Sol"]
     },
     {
         "name": "Psy",
-        "color": "#ef3f7a"
+        "color": "#ef3f7a",
+        "strenghts": ["Combat", "Poison"],
+        "weaknesses": ["Insecte", "Spectre", "Ténèbres"]
     },
     {
         "name": "Roche",
-        "color": "#b1ab82"
+        "color": "#b1ab82",
+        "strenghts": ["Feu", "Glace", "Insecte", "Vol"],
+        "weaknesses": ["Acier", "Combat", "Eau", "Plante", "Sol"]
     },
     {
         "name": "Sol",
-        "color": "#92501b"
+        "color": "#92501b",
+        "strenghts": ["Acier", "Électrik", "Feu", "Poison", "Roche"],
+        "weaknesses": ["Eau", "Glace", "Plante"]
     },
     {
         "name": "Spectre",
-        "color": "#713f71"
+        "color": "#713f71",
+        "strenghts": ["Psy", "Spectre"],
+        "weaknesses": ["Spectre", "Ténèbres"]
     },
     {
         "name": "Ténèbres",
-        "color": "#4e3e3c"
+        "color": "#4e3e3c",
+        "strenghts": ["Psy", "Spectre"],
+        "weaknesses": ["Combat", "Fée", "Insecte"]
     },
     {
         "name": "Vol",
-        "color": "#82baef"
+        "color": "#82baef",
+        "strenghts": ["Combat", "Insecte", "Plante"],
+        "weaknesses": ["Électrik", "Glace", "Roche"]
     }
 ]

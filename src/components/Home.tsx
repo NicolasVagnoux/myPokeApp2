@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import IPokedexItem from '../interfaces/IPokedexItem';
 import PokeListItem from './PokeListItem';
 import types from '../data/types.json';
@@ -22,9 +23,6 @@ const Home = () => {
 
     // API Loading handling
     const [isApiLoading, setIsApiLoading] = useState<boolean>(false);
-    useEffect(() => {
-        console.log('API Loading : ' + isApiLoading);
-    }, [isApiLoading]);
 
     //Scroll to top when changing filter
     const topRef = useRef<null | HTMLDivElement>(null);
@@ -59,6 +57,11 @@ const Home = () => {
 
             <div className='home__filters'>
                 <h1>My PokéApp</h1>
+                <div className='home__filters__links'>
+                    <Link to='/'><button type='button'>Pokédex</button></Link>
+                    <Link to='/types'><button type='button'>Types</button></Link>
+                    <Link to='/'><button type='button'>Constructeur</button></Link>
+                </div>
                 <div className='home__filters__search'>
                     <p>Rechercher :</p>
                     <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} />
