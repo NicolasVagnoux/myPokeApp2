@@ -23,9 +23,6 @@ const Home = () => {
 
     // API Loading handling
     const [isApiLoading, setIsApiLoading] = useState<boolean>(false);
-    useEffect(() => {
-        console.log('API Loading : ' + isApiLoading);
-    }, [isApiLoading]);
 
     //Scroll to top when changing filter
     const topRef = useRef<null | HTMLDivElement>(null);
