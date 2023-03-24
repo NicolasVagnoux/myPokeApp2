@@ -1,0 +1,79 @@
+.builderPage {
+    // min-height: 100vh;
+    & > h2 {
+        margin-top: 50px;
+        margin-bottom: 25px;
+        padding-left: 4%;
+        text-shadow: 0px 4px 10px rgb(120, 120, 120);
+    }
+    &__ifNothing {
+        font-size: 1.2rem;
+        font-style: italic;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+    &__list {
+        width: 92%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding-left: 4%;
+        padding-right: 4%;
+        padding-bottom: 25px;
+        @media (max-width: 421px) {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        &__item {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 180px;
+            @media (max-width: 421px) {
+                width: 100%;
+            }
+            & > p {
+                margin-top: 10px;
+                margin-bottom: 5px;
+                @media (max-width: 421px) {
+                    width: 75%;
+                    margin: auto;
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                }
+            }
+            &__types {
+                height: 130px;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                align-content: flex-start;
+                gap: 5px;
+                padding-top: 5px;
+                @media (max-width: 421px) {
+                    width: 75%;
+                    margin: auto;
+                    height: auto;
+                    justify-content: center;
+                }
+                p {
+                    border: none;
+                    border-radius: 6px;
+                    box-shadow: 0px 4px 10px rgb(120, 120, 120);
+                    background-color: #ffffff40;
+                    width: 84px;
+                    text-align: center;
+                    color: white;
+                    text-shadow: 0px 4px 10px rgb(120, 120, 120);
+                }
+            }
+        }
+    }
+}

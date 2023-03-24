@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import IPokedexItem from '../interfaces/IPokedexItem';
 import types from '../data/types.json';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import StatChart from './StatChart';
 import DefensiveChart from './DefensiveChart';
+import TeamContext from '../contexts/TeamBuilder';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
+// import ITeamMember from '../interfaces/ITeamMember';
 
 interface Props {
     id: number,
     setIsModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
+    location: string
 }
 
-const PokeModal = ({ id, setIsModalOpened }: Props) => {
+const PokeModal = ({ id, setIsModalOpened, location }: Props) => {
 
     // To change directly the displayed pokemon
     const [currentId, setCurrentId] = useState<number>(id);
@@ -29,16 +35,71 @@ const PokeModal = ({ id, setIsModalOpened }: Props) => {
         const getInfo = async () => {
             const { data } = await axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${currentId}`);
             setInfo(data);
+            setIsInTheTeam(team.map(poke => poke.id).includes(data.id) ? true : false);
         };
         getInfo();
     }, [currentId]);
 
+    // Context handling
+    const { team, setTeam } = useContext(TeamContext);
+
     // Type color handling
     interface ISelectedType {
         name: string,
-        color: string
+        color: string,
+        strenghts: string[],
+        weaknesses: string[]
     }
     const selectedType : ISelectedType = types.filter(type => type.name === info?.apiTypes[0].name)[0];
+    const selectedType2 : ISelectedType = types.filter(type => type.name === info?.apiTypes[1]?.name)[0] || {};
+
+    // Toastify
+    const notifyAdding = () =>
+        toast.info("Ajout dans l'équipe effectué !", {
+            position: 'top-right',
+            autoClose: 3000,
+            closeOnClick: true,
+    });
+    const notifyRemoving = () =>
+        toast.info("Retrait de l'équipe effectué !", {
+            position: 'top-right',
+            autoClose: 3000,
+            closeOnClick: true,
+    });
+    const notifyFullTeam = () =>
+        toast.warning("L'équipe ne peut pas comporter plus de 6 pokémons", {
+            position: 'top-right',
+            autoClose: 3000,
+            closeOnClick: true,
+    });
+
+    const navigate: NavigateFunction = useNavigate();
+    const refresh = () => {
+        navigate('/');
+        navigate('/builder')
+    };
+
+    // Adding/removing pokemon in the team
+    const [isInTheTeam, setIsInTheTeam] = useState<boolean>(false);
+    const addPokeToTheTeam = () => {
+        if (team.length < 6) {
+            const newTeam: any = team.push({id: info?.id, name: info?.name, image: info?.image, apiTypes: info?.apiTypes, type1: selectedType, type2: selectedType2});
+            setTeam(newTeam);
+            setIsInTheTeam(true);
+            notifyAdding();
+        } else {
+            notifyFullTeam();
+        }
+    };
+    const removePokeFromTheTeam = () => {
+        const index = team.map(x => x.id).indexOf(info?.id);
+        setTeam(team.splice(index, 1));
+        setIsInTheTeam(false);
+        if (location === '/builder') {
+            refresh();
+        }
+        notifyRemoving();
+    }
     
     return (
         <>
@@ -49,7 +110,10 @@ const PokeModal = ({ id, setIsModalOpened }: Props) => {
                     <button className='pokeModal__content__1st__close' type='button' onClick={() => setIsModalOpened(false)}><img src="./assets/cross.svg" alt="close" /></button>
                     <div className='pokeModal__content__1st__title'>
                         <h2>{info.name}</h2>
-                        <h3>#{info.id < 10 ? '00'+info.id : info.id < 100 ? '0'+info.id : info.id}</h3>
+                        <div>
+                            <button type='button' onClick={isInTheTeam ? removePokeFromTheTeam : addPokeToTheTeam}><img src={`${isInTheTeam ? './assets/remove.svg' : './assets/add.svg'}`} title={`${isInTheTeam ? 'Retirer de mon équipe' : 'Ajouter à mon équipe'}`} alt='add/remove' /></button>
+                            <h3>#{info.id < 10 ? '00'+info.id : info.id < 100 ? '0'+info.id : info.id}</h3>
+                        </div>
                     </div>
                     <div className='pokeModal__content__1st__types'>
                         <h3>{info.apiTypes[0].name}</h3>

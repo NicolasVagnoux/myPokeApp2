@@ -12,7 +12,7 @@ const Navbar = ({ id }: Props) => {
             <div className='navbar__links'>
                 <Link to='/'><button type='button'>Pokédex</button></Link>
                 <Link to='/types'><button type='button' className={`${id === '2' && 'active'}`}>Types</button></Link>
-                <Link to='/builder'><button type='button' className={`${id === '3' && 'active'}`}>Constructeur</button></Link>
+                <Link to='/builder'><button type='button' className={`${id === '3' && 'active'}`}>Mon équipe</button></Link>
             </div>
         </div>
     );

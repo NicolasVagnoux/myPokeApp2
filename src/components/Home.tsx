@@ -60,7 +60,7 @@ const Home = () => {
                 <div className='home__filters__links'>
                     <Link to='/'><button type='button'>Pokédex</button></Link>
                     <Link to='/types'><button type='button'>Types</button></Link>
-                    <Link to='/'><button type='button'>Constructeur</button></Link>
+                    <Link to='/builder'><button type='button'>Mon équipe</button></Link>
                 </div>
                 <div className='home__filters__search'>
                     <p>Rechercher :</p>
@@ -70,7 +70,7 @@ const Home = () => {
                 <div className='home__filters__genPagination'>
                     <p>Filtrer par génération :</p>
                     <div className='home__filters__genPagination__buttons'>
-                        {allGens.map(gen => <button className={`home__filters__genPagination__buttons__button ${gen === generation && 'home__filters__genPagination__buttons__button--selected'}`} type='button' onClick={() => setGeneration(gen)}>{gen}G</button>)}
+                        {allGens.map(gen => <button key={gen} className={`home__filters__genPagination__buttons__button ${gen === generation && 'home__filters__genPagination__buttons__button--selected'}`} type='button' onClick={() => setGeneration(gen)}>{gen}G</button>)}
                         <button className='home__filters__genPagination__buttons__button' type='button' onClick={() => setGeneration(0)}>Toutes</button>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const Home = () => {
                     <p>Filtrer par type :<img src='./assets/cross_b.svg' alt='reset' onClick={() => setTypeFilters([])} style={{display: typeFilters.length ? 'initial' : 'none'}}/></p>
                     <div className='home__filters__type__buttons'>
                         {types && types.map(type => 
-                            <button className={`home__filters__type__buttons__button ${typeFilters.includes(type.name) && 'home__filters__type__buttons__button--selected'}`} type='button' onClick={() => handleTypeFilters(type.name)}>
+                            <button key={type.name} className={`home__filters__type__buttons__button ${typeFilters.includes(type.name) && 'home__filters__type__buttons__button--selected'}`} type='button' onClick={() => handleTypeFilters(type.name)}>
                                 {type.name}
                             </button>
                         )}
@@ -94,7 +94,7 @@ const Home = () => {
                     .filter(pokemon => pokemon.apiGeneration === generation || !generation)
                     .filter(pokemon => typeFilters.includes(pokemon.apiTypes[0].name) || typeFilters.includes(pokemon.apiTypes[1]?.name) || typeFilters.length === 0 || typeFilters.length === 2)
                     .filter(pokemon => typeFilters.includes(pokemon.apiTypes[0].name) && typeFilters.includes(pokemon.apiTypes[1]?.name) || typeFilters.length < 2)
-                    .map(pokemon => (<PokeListItem {...pokemon} />))
+                    .map((pokemon, i) => (<PokeListItem {...pokemon} key={i} location={''} />))
                 }
                 {isApiLoading && <img className='loading' src='./assets/loading-ball.png' alt='loading' />}
             </ul>
