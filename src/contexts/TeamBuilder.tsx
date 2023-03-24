@@ -10,7 +10,7 @@ type Props = { children: React.ReactNode };
 
 const TeamContext = createContext<TeamContent>({
   team: [],
-  setTeam: () => {}
+  setTeam: () => {},
 });
 
 export const TeamContextProvider: React.FC<Props> = ({ children }) => {

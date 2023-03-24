@@ -94,7 +94,7 @@ const Home = () => {
                     .filter(pokemon => pokemon.apiGeneration === generation || !generation)
                     .filter(pokemon => typeFilters.includes(pokemon.apiTypes[0].name) || typeFilters.includes(pokemon.apiTypes[1]?.name) || typeFilters.length === 0 || typeFilters.length === 2)
                     .filter(pokemon => typeFilters.includes(pokemon.apiTypes[0].name) && typeFilters.includes(pokemon.apiTypes[1]?.name) || typeFilters.length < 2)
-                    .map((pokemon, i) => (<PokeListItem {...pokemon} key={i} />))
+                    .map((pokemon, i) => (<PokeListItem {...pokemon} key={i} location={''} />))
                 }
                 {isApiLoading && <img className='loading' src='./assets/loading-ball.png' alt='loading' />}
             </ul>

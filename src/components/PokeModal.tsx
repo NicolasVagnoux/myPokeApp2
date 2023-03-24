@@ -7,14 +7,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import StatChart from './StatChart';
 import DefensiveChart from './DefensiveChart';
 import TeamContext from '../contexts/TeamBuilder';
-import ITeamMember from '../interfaces/ITeamMember';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
+// import ITeamMember from '../interfaces/ITeamMember';
 
 interface Props {
     id: number,
     setIsModalOpened: React.Dispatch<React.SetStateAction<boolean>>,
+    location: string
 }
 
-const PokeModal = ({ id, setIsModalOpened }: Props) => {
+const PokeModal = ({ id, setIsModalOpened, location }: Props) => {
 
     // To change directly the displayed pokemon
     const [currentId, setCurrentId] = useState<number>(id);
@@ -71,6 +73,12 @@ const PokeModal = ({ id, setIsModalOpened }: Props) => {
             closeOnClick: true,
     });
 
+    const navigate: NavigateFunction = useNavigate();
+    const refresh = () => {
+        navigate('/');
+        navigate('/builder')
+    };
+
     // Adding/removing pokemon in the team
     const [isInTheTeam, setIsInTheTeam] = useState<boolean>(false);
     const addPokeToTheTeam = () => {
@@ -82,14 +90,15 @@ const PokeModal = ({ id, setIsModalOpened }: Props) => {
         } else {
             notifyFullTeam();
         }
-        // console.log(team);
     };
     const removePokeFromTheTeam = () => {
         const index = team.map(x => x.id).indexOf(info?.id);
         setTeam(team.splice(index, 1));
         setIsInTheTeam(false);
+        if (location === '/builder') {
+            refresh();
+        }
         notifyRemoving();
-        // console.log(team);
     }
     
     return (

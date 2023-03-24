@@ -3,7 +3,15 @@ import IPokedexItem from '../interfaces/IPokedexItem';
 import types from '../data/types.json';
 import PokeModal from './PokeModal';
 
-const PokeListItem = ({ id, name, apiTypes, apiGeneration, image }: IPokedexItem) => {
+interface Props {
+    id: number,
+    name: string,
+    apiTypes: Array<{name: string, image: string}>,
+    image: string,
+    location: string
+}
+
+const PokeListItem = ({ id, name, apiTypes, image, location }: Props) => {
 
     interface ISelectedType {
         name: string,
@@ -31,7 +39,7 @@ const PokeListItem = ({ id, name, apiTypes, apiGeneration, image }: IPokedexItem
             </li>
             )}
             {selectedType && isModalOpened && (
-                <PokeModal id={id} setIsModalOpened={setIsModalOpened} />
+                <PokeModal id={id} setIsModalOpened={setIsModalOpened} location={location} />
             )}
         </>
     );
