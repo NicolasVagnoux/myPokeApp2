@@ -5,27 +5,8 @@
 
 body {
     font-family: 'Satoshi';
-    // background-color: #bdd6ec;
-    // background: linear-gradient(135deg, rgba(126,182,223,1) 0%, rgba(132,144,203,1) 67%);     // background-size: 33vw;
-    background-image: linear-gradient(135deg, rgba(218, 170, 170, 0.95) 0%, rgba(218, 170, 170, 0.95) 67%), url('../assets/bg-ball.png');
+    background: linear-gradient(135deg, rgb(2, 62, 138, 0.67) 0%, rgb(2, 62, 138, 0.33) 67%);     // background-size: 33vw;
+    // background-image: linear-gradient(135deg, rgba(218, 170, 170, 0.95) 0%, rgba(218, 170, 170, 0.95) 67%), url('../assets/bg-ball.png');
     // background-image: linear-gradient(135deg, rgba(158, 167, 211, 0.92) 0%, rgba(158, 167, 211, 0.92) 67%), url('../assets/bg-ball.png');
-    background-size: 110px 110px;
-    // background-repeat: no-repeat;
-    // transform: rotate(45deg);
-    // overflow: hidden;
-    // position: relative;
+    background-size: 100% 108%;
 }
-
-// body::before {
-//     content: "";
-//     background-image: linear-gradient(135deg, rgba(218, 170, 170, 0.95) 0%, rgba(218, 170, 170, 0.95) 67%), url('../assets/bg-ball.png');
-//     // background-image: linear-gradient(135deg, rgba(158, 167, 211, 0.92) 0%, rgba(158, 167, 211, 0.92) 67%), url('../assets/bg-ball.png');
-//     background-size: 110px 110px;
-//     position: absolute;
-//     top: -50%;
-//     left: -50%;
-//     z-index: -1;
-//     width: 200%;
-//     height: 200%;
-//     transform: rotate(20deg);
-// }

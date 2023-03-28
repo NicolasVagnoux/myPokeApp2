@@ -75,8 +75,10 @@ const PokeModal = ({ id, setIsModalOpened, location }: Props) => {
 
     const navigate: NavigateFunction = useNavigate();
     const refresh = () => {
-        navigate('/');
-        navigate('/builder')
+        navigate('/types');
+        setTimeout(() => {
+            navigate('/builder');
+        }, 10);          
     };
 
     // Adding/removing pokemon in the team
@@ -86,6 +88,9 @@ const PokeModal = ({ id, setIsModalOpened, location }: Props) => {
             const newTeam: any = team.push({id: info?.id, name: info?.name, image: info?.image, apiTypes: info?.apiTypes, type1: selectedType, type2: selectedType2});
             setTeam(newTeam);
             setIsInTheTeam(true);
+            if (location === '/builder') {
+                refresh();
+            }
             notifyAdding();
         } else {
             notifyFullTeam();
