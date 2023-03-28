@@ -21,7 +21,7 @@ const TypePage = () => {
         <div className='typePage'>
             <Navbar id='2' />
             <div className='typePage__list'>
-                {typesList && typesList.map(type => <TypeItem {...type} />)}
+                {typesList && typesList.map((type,i) => <TypeItem {...type} key={i} />)}
             </div>
         </div>
     );
