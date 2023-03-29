@@ -8,7 +8,8 @@ interface Props {
 const Navbar = ({ id }: Props) => {
     return (
         <div className='navbar'>
-            <h1>My PokéApp</h1>
+            {/* <h1>My PokéApp</h1> */}
+            <img src='./assets/title.svg' alt='MyPokéApp' />
             <div className='navbar__links'>
                 <Link to='/'><button type='button'>Pokédex</button></Link>
                 <Link to='/types'><button type='button' className={`${id === '2' && 'active'}`}>Types</button></Link>
