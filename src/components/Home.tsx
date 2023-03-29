@@ -56,7 +56,8 @@ const Home = () => {
         <div className='home'>
 
             <div className='home__filters'>
-                <h1>My PokéApp</h1>
+                {/* <h1>My PokéApp</h1> */}
+                <img src='./assets/title.svg' alt='MyPokéApp' />
                 <div className='home__filters__links'>
                     <Link to='/'><button type='button'>Pokédex</button></Link>
                     <Link to='/types'><button type='button'>Types</button></Link>
