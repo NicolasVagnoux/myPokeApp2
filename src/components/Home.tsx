@@ -24,7 +24,7 @@ const Home = () => {
     // API Loading handling
     const [isApiLoading, setIsApiLoading] = useState<boolean>(false);
 
-    //Scroll to top when changing filter
+    // Scroll to top when changing filter
     const topRef = useRef<null | HTMLDivElement>(null);
     useEffect(() => {
       topRef.current?.scrollIntoView();

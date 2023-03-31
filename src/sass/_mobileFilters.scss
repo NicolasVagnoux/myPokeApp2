@@ -21,6 +21,9 @@
             width: 22px;
             transform: rotate(-90deg) translate(-2px, 0px);
         }
+        img.opened {
+            transform: rotate(90deg) translate(2px, 0px);
+        }
     }
     &__genPagination {
         width: 80%;
