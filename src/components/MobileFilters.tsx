@@ -29,7 +29,7 @@ const MobileFilters = ({ search, setSearch, generation, setGeneration, typeFilte
     
     return (
         <div className='mobileFilters'>
-            <button type='button' onClick={() => setShowFilters(!showFilters)} className='toggle'>{showFilters ? 'Masquer les filtres' : 'Afficher les filtres'} <img src='./assets/left-arrow.svg' /></button>
+            <button type='button' onClick={() => setShowFilters(!showFilters)} className='toggle'>{showFilters ? 'Masquer les filtres' : 'Afficher les filtres'} <img src='./assets/left-arrow.svg' className={`${showFilters && 'opened'}`} /></button>
             {showFilters && <div className='mobileFilters__search'>
                 <p>Rechercher :</p>
                 <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} />
