@@ -32,7 +32,7 @@ const BuilderPage = () => {
                     <PokeListItem id={pokemon.id!} name={pokemon.name!} apiTypes={pokemon.apiTypes!} image={pokemon.image!} location={location.pathname} />
                     <p>Super efficace sur :</p>
                     <div className='builderPage__list__item__types'>
-                        {pokemon && pokemon.type1.strenghts.map(x => <p style={{backgroundColor: `${types.filter(type => type.name === x)[0].color}90`}}>{x}</p>)}
+                        {pokemon && pokemon.type1.strenghts.map(x => <p style={{backgroundColor: `${types.filter(type => type.name === x)[0].color}b0`}}>{x}</p>)}
                         {pokemon.type2.strenghts && pokemon.type2.strenghts.filter(x => !pokemon.type1.strenghts.includes(x)).map(x => <p style={{backgroundColor: `${types.filter(type => type.name === x)[0].color}90`}}>{x}</p>)}
                     </div>
                 </li>
