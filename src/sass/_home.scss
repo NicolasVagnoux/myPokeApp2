@@ -83,7 +83,7 @@
                 box-shadow: 0px 4px 10px rgb(120, 120, 120);
                 font-family: 'Satoshi';
                 font-size: 1rem;
-                background-color: #ffffff40;
+                background-color: #ffffff70;
                 color: black;
                 cursor: pointer;
                 @media (max-width: 421px) {
@@ -94,7 +94,7 @@
                 }
             }
             a:nth-child(1) button {
-                background-color: #e7232490;
+                background-color: #e72324b0;
                 color: white;
             }
         }
@@ -123,10 +123,10 @@
                     font-family: 'Satoshi';
                     color: black;
                     font-size: 1rem;
-                    background-color: #ffffff40;
+                    background-color: #ffffff70;
                     cursor: pointer;
                     &--selected {
-                        background-color: #e7232490;
+                        background-color: #e72324b0;
                         color: white;
                     }
                 }
@@ -194,11 +194,11 @@
                     font-family: 'Satoshi';
                     color: black;
                     font-size: 1rem;
-                    background-color: #ffffff40;
+                    background-color: #ffffff70;
                     cursor: pointer;
                     &--selected {
-                        background-color: #e7232490 !important;
-                        color: white;
+                        background-color: #e72324b0 !important;
+                        color: white !important;
                     }
                 }
             }

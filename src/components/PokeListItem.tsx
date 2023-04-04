@@ -26,7 +26,7 @@ const PokeListItem = ({ id, name, apiTypes, image, location }: Props) => {
 
         <>
             {selectedType && (
-            <li className='pokeListItem' style={{backgroundColor: `${selectedType.color}90`}} onClick={() => setIsModalOpened(true)}>
+            <li className='pokeListItem' style={{backgroundColor: `${selectedType.color}c0`}} onClick={() => setIsModalOpened(true)}>
                 <p>{name}</p>
                 <div className="pokeListItem__content">
                     <div className='pokeListItem__content__types'>

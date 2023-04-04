@@ -18,7 +18,7 @@ const TypeItem = ({ id, name, image, englishName }: IType) => {
 
     return (
         <>
-            <div className='typeItem' style={{backgroundColor: `${selectedType.color}60`}} onClick={() => setIsModalOpened(true)}>
+            <div className='typeItem' style={{backgroundColor: `${selectedType.color}c0`}} onClick={() => setIsModalOpened(true)}>
                 <img src={image} alt={name} />
                 <p>{name}</p>
             </div>
